@@ -1,6 +1,7 @@
 package com.tom.bmi;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
         float weight = Float.parseFloat(w);
         float height = Float.parseFloat(h);
         float bmi = weight/ (height * height);
-        Log.d("BMI", String.valueOf(bmi));
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("BMI_EXTRA", bmi);
+        startActivity(intent);
+        /*Log.d("BMI", String.valueOf(bmi));
         Toast.makeText(this, String.valueOf(bmi), Toast.LENGTH_LONG)
                 .show();
         new AlertDialog.Builder(this)
@@ -36,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle("BMI result")
                 .setPositiveButton("OK", null)
                 .setNeutralButton("Cancel", null)
-                .show();
+                .show();*/
     }
 
     private void findViews() {
