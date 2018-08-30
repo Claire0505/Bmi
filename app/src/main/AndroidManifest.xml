@@ -25,7 +25,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".IntentResultActivity"/>
+        <activity android:name=".IntentResultActivity"
+            android:parentActivityName=".Main2Activity">
+
+        </activity>
 
     </application>
 

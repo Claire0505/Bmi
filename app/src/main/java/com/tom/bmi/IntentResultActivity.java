@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class IntentResultActivity extends AppCompatActivity {
 
@@ -15,8 +16,15 @@ public class IntentResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         // 第一個參數為字串，代表資料的標籤，第二個參數是該標籤讀取不到資料時的預設值
-        float bmi = intent.getFloatExtra("BMI_EXTRA", 0);
+       // float bmi = intent.getFloatExtra(getString(R.string.bmi_extra), 0);
+
+        Bundle bag = intent.getExtras();
+        float bmi = bag.getFloat(getString(R.string.bmi_extra), 0);
+        String test = bag.getString("TEST_EXTRA", null);
+
         TextView result = findViewById(R.id.result);
-        result.setText("您的BMI值為：" + bmi);
+        result.setText(String.format("%s%s", getString(R.string.bmiValue), bmi));
+
+        Toast.makeText(this, "TestBundle:" + test, Toast.LENGTH_SHORT).show();
     }
 }

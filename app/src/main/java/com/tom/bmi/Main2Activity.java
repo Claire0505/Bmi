@@ -54,8 +54,18 @@ public class Main2Activity extends AppCompatActivity {
 
         Intent intent = new Intent(this, IntentResultActivity.class);
         //傳遞資料
-        intent.putExtra("BMI_EXTRA", bmi);
+       // intent.putExtra(getString(R.string.bmi_extra), bmi);
+
+        // 有多種資料需要傳遞，可使用Bundle類別 (類似一個袋子，先將所有要傳的資料放在一個袋子中，最後再將袋子放到Intent
+        Bundle bag = new Bundle();
+        bag.putFloat(getString(R.string.bmi_extra), bmi);
+        bag.putString("TEST_EXTRA", "Testing");
+        //最後，再呼叫Intent類別的 putExtras 方法(後面有加s的)，將bag放入
+        intent.putExtras(bag);
+
         startActivity(intent);
+
+
     }
 
 }
