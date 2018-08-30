@@ -1,5 +1,6 @@
 package com.tom.bmi;
 
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -45,11 +46,16 @@ public class Main2Activity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         //呼叫setMessage方法定顯示文字
-        builder.setMessage( bmi +" ")
-                .setTitle("BMI運算")
-                .setPositiveButton("OK", null)
-                .setNegativeButton("Cancel", null)
-                .show();
+//        builder.setMessage( bmi +" ")
+//                .setTitle("BMI運算")
+//                .setPositiveButton("OK", null)
+//                .setNegativeButton("Cancel", null)
+//                .show();
+
+        Intent intent = new Intent(this, IntentResultActivity.class);
+        //傳遞資料
+        intent.putExtra("BMI_EXTRA", bmi);
+        startActivity(intent);
     }
 
 }
