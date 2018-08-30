@@ -43,6 +43,7 @@ public class Main2Activity extends AppCompatActivity {
 
         //產生Builder物件
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
         //呼叫setMessage方法定顯示文字
         builder.setMessage( bmi +" ")
                 .setTitle("BMI運算")
