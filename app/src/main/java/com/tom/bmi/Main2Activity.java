@@ -1,11 +1,13 @@
 package com.tom.bmi;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -36,6 +38,17 @@ public class Main2Activity extends AppCompatActivity {
         float bmi = weight / (height * height);
 
         Log.d("BMI", String.valueOf(bmi));
+
+        Toast.makeText(this, String.valueOf(bmi), Toast.LENGTH_LONG).show();
+
+        //產生Builder物件
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //呼叫setMessage方法定顯示文字
+        builder.setMessage( bmi +" ")
+                .setTitle("BMI運算")
+                .setPositiveButton("OK", null)
+                .setNegativeButton("Cancel", null)
+                .show();
     }
 
 }
